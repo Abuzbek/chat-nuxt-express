@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>Secret key</title>
+</head>
+<style>
+  button {
+    height: 36px;
+    min-width: 64px;
+    padding: 0 16px;
+    color: #FFFFFF;
+    background-color: #1976d2 !important;
+    border-color: #1976d2 !important;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    align-items: center;
+    border-radius: 4px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-weight: 500;
+    letter-spacing: 0.0892857143em;
+    justify-content: center;
+    outline: 0;
+    position: relative;
+    text-decoration: none;
+    text-indent: 0.0892857143em;
+    text-transform: uppercase;
+    transition-duration: 0.28s;
+    transition-property: box-shadow, transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  input {
+    height: 36px;
+    min-width: 64px;
+    padding: 0 16px;
+    color: #828282;
+    background-color: #fff !important;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  }
+
+  input:focus {
+    outline: none;
+  }
+</style>
+
+<body>
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl mb-4">Your Secret key</h1>
+    <div class="card p-5 shadow-md border-2 rounded-md max-w-5xl flex itemas-center">
+      <input disabled type="text" style="padding:13px 19px 13px 19px; color:#828282;"
+        class="border-2 border-gray-300 border-solid shadow-md rounded-md w-5/6" value="${bcryptPassword}" />
+      <button id="">COPY</button>
+    </div>
+  </div>
+  <script>
+    const btn = document.querySelector('button')
+    const input = document.querySelector('input')
+    btn.addEventListener('click', () => {
+      input.select();
+      input.setSelectionRange(0, 99999); /* For mobile devices */
+      navigator.clipboard.writeText(input.value);
+    })
+  </script>
+</body>
+
+</html>
